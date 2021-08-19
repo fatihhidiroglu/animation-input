@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Input</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .custom-field {
+            position: relative;
+            font-size: 14px;
+            padding-top: 20px;
+        }
+
+        .custom-field input {
+            border: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            -moz-appearance: none ;
+            appearance: none;
+            outline: none;
+            background-color: #f2f2f2;
+            padding: 12px;
+            border-radius: 3px;
+            width: 250px;
+            font-size: 14px;
+        }
+
+        .custom-field .placeholder {
+            position: absolute;
+            left: 12px;
+            top: calc(50% + 10px);
+            transform: translateY(-50%);
+            color: #aaa ;
+            transition: 
+                top 0.3s ease-in-out,
+                font-size 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+        }
+
+        .custom-field input:valid + .placeholder,
+        .custom-field input:focus + .placeholder {
+            top: 10px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* border */
+        .custom-field.border input {
+            background: none;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+
+        .custom-field.border input:valid,
+        .custom-field.border input:focus {
+            border-color: #a4a4a4;
+            transition-delay: 0.1s;
+        }
+
+        .custom-field.border input:valid + .placeholder,
+        .custom-field.border input:focus + .placeholder {
+            top: 11px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <label class="custom-field">
+        <input type="text" required/>
+        <span class="placeholder">Animation Input Borderless</span>
+    </label>
+    <br>
+    <label class="custom-field border">
+        <input type="text" required/>
+        <span class="placeholder">Animation Input Border</span>
+    </label>
+    
+</body>
+</html>
